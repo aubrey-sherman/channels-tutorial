@@ -6,22 +6,40 @@
     <title>Chat Rooms</title>
 </head>
 <body>
-    What chat room would you like to enter?<br>
-    <input id="room-name-input" type="text" size="100"><br>
-    <input id="room-name-submit" type="button" value="Enter">
+  <img style="display: block; margin-right: auto; margin-left: auto; width: 200px" src ="https://www.thestreet.com/.image/t_share/MTY4NjQwMzc2MDk3OTQxMTI3/image-placeholder-title.jpg">
+  <h3 style="text-align: center">AOL Chat Rooms</h3>
 
+    <form id="choose-room-form">
+    <p style="margin-left: 20%">What chat room would you like to enter?<br>
+    <input id="room-name-input" type="text" size="80"><br>
+    <button id="room-name-submit" style="margin-top: 8px">Go Chat</button>
+  </p>
+</form>
     <script>
-        document.querySelector('#room-name-input').focus();
-        document.querySelector('#room-name-input').onkeyup = function(e) {
-            if (e.keyCode === 13) {  // enter, return
-                document.querySelector('#room-name-submit').click();
-            }
-        };
+        // legacy tutorial script
+        // document.querySelector('#room-name-input').focus();
+        // document.querySelector('#room-name-input').onkeyup = function(e) {
+        //     if (e.keyCode === 13) {  // enter, return
+        //         document.querySelector('#room-name-submit').click();
+        //     }
+        // };
 
-        document.querySelector('#room-name-submit').onclick = function(e) {
-            var roomName = document.querySelector('#room-name-input').value;
-            window.location.pathname = '/chat/' + roomName + '/';
-        };
+        // legacy tutorial script
+        // document.querySelector('#room-name-submit').onclick = function(e) {
+        //     const roomName = document.querySelector('#room-name-input').value;
+        //     window.location.pathname = '/chat/' + roomName + '/';
+        // };
+
+        document.querySelector(`#room-name-input`).focus();
+
+        function handleSubmit(evt) {
+          evt.preventDefault()
+          const roomName = document.querySelector('#room-name-input').value;
+          window.location.pathname = '/chat/' + roomName + '/';
+        }
+
+        document.querySelector('#choose-room-form').addEventListener(
+          'submit', handleSubmit)
     </script>
 </body>
 </html>
